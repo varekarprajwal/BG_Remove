@@ -1,10 +1,7 @@
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
 from rembg import remove
 import os
-import numpy as np
-
 def remove_background_advanced(input_path, output_path, alpha_matte=False, background_color=(255, 255, 255)):
     with open(input_path, "rb") as input_file, open(output_path, "wb") as output_file:
         input_data = input_file.read()
