@@ -1,3 +1,2 @@
 rembg
 opencv-python
-os-sys

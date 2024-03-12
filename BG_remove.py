@@ -12,16 +12,18 @@ def remove_background_advanced(input_path, output_path, alpha_matte=False, backg
         
 
 # Get the list of all image files in the folder
-folder_path = "Good/"
+folder_path = "Defective/"
 image_files = [file for file in os.listdir(folder_path) if file.endswith((".jpg", ".jpeg", ".png"))]
 i=0
 # Process each image file
 for image_file in image_files:
     input_path = os.path.join(folder_path, image_file)
-    output_image = f"Pre_Good/Pre_image_good_{i}.jpg"
+    output_image = f"Pre_Defective/Pre_image_def_{i}.jpg"
     input = cv2.imread(input_path)
     remove_background_advanced(input_path, output_image, alpha_matte=True, background_color=(0, 0, 0))
     output = cv2.imread(output_image)
+    image1 =cv2.resize(output, (250, 250), interpolation = cv2.INTER_LINEAR)
+    cv2.imwrite(output_image, image1) 
     i+=1
     # Perform further operations on the output image
     # ...
